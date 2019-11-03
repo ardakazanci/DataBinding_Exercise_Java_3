@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="User"
+            type="com.ardakazanci.databinding_exercise_java_3.model.User" />
+        <variable
+            name="ClickHandlers"
+            type="com.ardakazanci.databinding_exercise_java_3.util.ClickHandlers" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/activity_main"
+        >
+
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{User.name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{User.email}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{ClickHandlers::onButtonClick}"
+            android:text="CLICK" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(v) -> ClickHandlers.onButtonClickWithParam(v, User)}"
+            android:text="CLICK WITH PARAM" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LONG PRESS"
+            android:onLongClick="@{ClickHandlers::onButtonLongPressed}" />
+
+
+    </LinearLayout>
+</layout>
